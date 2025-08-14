@@ -1,0 +1,102 @@
+"use client"
+
+import * as React from "react"
+import Link from "next/link"
+import { Menu, X } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Button } from "@/components/ui/button"
+import { ModeToggle } from "./theme-mode-toggle"
+
+const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "Book Appointment", href: "/appointment" },
+    { name: "Knowledge Share", href: "/knowledge" },
+    { name: "Community", href: "/community" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "FAQ", href: "/faq" },
+    { name: "Contact", href: "/contact" },
+]
+
+export default function NavigationMenu() {
+    const [isOpen, setIsOpen] = React.useState(false)
+
+    return (
+        <nav className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md border-b">
+            <div className="container mx-auto flex items-center justify-between py-3 px-4">
+
+                {/* Logo */}
+                <Link href="/" className="text-lg font-bold">
+                    <span className="text-primary">VetCare</span>
+                </Link>
+
+                {/* Center Menu - Desktop */}
+                <div className="hidden md:flex items-center gap-6">
+                    {navLinks.map((link, i) => (
+                        <motion.div
+                            key={link.name}
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.05 }}
+                        >
+                            <Link
+                                href={link.href}
+                                className="text-sm font-medium transition-colors hover:text-primary"
+                            >
+                                {link.name}
+                            </Link>
+                        </motion.div>
+                    ))}
+                </div>
+
+                {/* Right - Theme toggle + Mobile Menu */}
+                <div className="flex items-center gap-2">
+                    <ModeToggle />
+                    <div className="md:hidden">
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => setIsOpen(!isOpen)}
+                        >
+                            {isOpen ? <X size={24} /> : <Menu size={24} />}
+                        </Button>
+                    </div>
+                </div>
+            </div>
+
+            {/* Mobile Menu */}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="md:hidden bg-background border-t"
+                    >
+                        <div className="flex flex-col items-center p-4 space-y-3">
+                            {navLinks.map((link, i) => (
+                                <motion.div
+                                    key={link.name}
+                                    initial={{ opacity: 0, y: -5 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: i * 0.05 }}
+                                >
+                                    <Link
+                                        href={link.href}
+                                        onClick={() => setIsOpen(false)}
+                                        className="text-sm font-medium transition-colors hover:text-primary"
+                                    >
+                                        {link.name}
+                                    </Link>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </nav>
+    )
+}
