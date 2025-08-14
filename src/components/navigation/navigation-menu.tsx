@@ -22,6 +22,7 @@ const navLinks = [
 
 export default function NavigationMenu() {
     const [isOpen, setIsOpen] = React.useState(false)
+    const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null)
 
     return (
         <nav className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md border-b">
@@ -40,6 +41,9 @@ export default function NavigationMenu() {
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: i * 0.05 }}
+                            onMouseEnter={() => setHoveredIndex(i)}
+                            onMouseLeave={() => setHoveredIndex(null)}
+                            className="relative"
                         >
                             <Link
                                 href={link.href}
@@ -47,6 +51,17 @@ export default function NavigationMenu() {
                             >
                                 {link.name}
                             </Link>
+                            {hoveredIndex === i && (
+                                <motion.div
+                                    layoutId="underline"
+                                    className="absolute left-0 right-0 -bottom-1 h-[2px] bg-primary"
+                                    initial={{ scaleX: 0 }}
+                                    animate={{ scaleX: 1 }}
+                                    exit={{ scaleX: 0 }}
+                                    transition={{ duration: 0.25 }}
+                                    style={{ transformOrigin: "center" }}
+                                />
+                            )}
                         </motion.div>
                     ))}
                 </div>
