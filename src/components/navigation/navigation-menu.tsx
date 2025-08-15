@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import { useState } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -21,8 +22,8 @@ const navLinks = [
 ]
 
 export default function NavigationMenu() {
-    const [isOpen, setIsOpen] = React.useState(false)
-    const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null)
+    const [isOpen, setIsOpen] = useState(false)
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
     return (
         <nav className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md border-b">
