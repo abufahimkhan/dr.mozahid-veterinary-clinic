@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "./theme-mode-toggle"
+import { NavUser } from "./nav-user" 
 
 const navLinks = [
     { name: "Home", href: "/" },
@@ -67,9 +68,16 @@ export default function NavigationMenu() {
                     ))}
                 </div>
 
-                {/* Right - Theme toggle + Mobile Menu */}
+                {/* Right - Theme toggle + User + Mobile Menu */}
                 <div className="flex items-center gap-2">
                     <ModeToggle />
+                    <NavUser
+                        user={{
+                            name: "John Doe",
+                            email: "john@example.com",
+                            avatar: "/avatars/user.png",
+                        }}
+                    />
                     <div className="md:hidden">
                         <Button
                             variant="ghost"
