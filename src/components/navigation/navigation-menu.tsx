@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "./theme-mode-toggle"
 import { NavUser } from "./nav-user" 
+import { Logo } from "./logo-image"
 
 const navLinks = [
     { name: "Home", href: "/" },
@@ -27,13 +28,11 @@ export default function NavigationMenu() {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
     return (
-        <nav className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md border-b">
+        <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b">
             <div className="container mx-auto flex items-center justify-between py-3 px-4">
 
                 {/* Logo */}
-                <Link href="/" className="text-lg font-bold">
-                    <span className="text-primary">VetCare</span>
-                </Link>
+                    <Logo/>
 
                 {/* Center Menu - Desktop */}
                 <div className="hidden md:flex items-center gap-6">
@@ -49,7 +48,7 @@ export default function NavigationMenu() {
                         >
                             <Link
                                 href={link.href}
-                                className="text-sm font-medium transition-colors hover:text-primary"
+                                className="text-md font-medium transition-colors hover:text-primary"
                             >
                                 {link.name}
                             </Link>

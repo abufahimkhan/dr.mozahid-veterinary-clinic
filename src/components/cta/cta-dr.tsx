@@ -19,7 +19,7 @@ export default function CTA() {
                     <span className="w-16 sm:w-20 h-2 bg-gray-800 dark:bg-white mb-4" />
 
                     <h1 className="font-bebas-neue uppercase text-4xl sm:text-5xl md:text-6xl font-black leading-tight dark:text-white text-gray-800">
-                        Dr. Mojahid
+                        Dr. Mozahid
                         <span className="block text-2xl sm:text-3xl md:text-4xl text-primary mt-2">
                             Veterinary Surgeon & Animal Care Specialist
                         </span>
@@ -27,7 +27,7 @@ export default function CTA() {
 
                     <p className="mt-6 text-sm sm:text-base md:text-lg text-gray-700 dark:text-gray-300">
                         With years of hands-on experience in veterinary medicine,
-                        Dr. Mojahid has dedicated his career to improving the health,
+                        Dr. Mozahid has dedicated his career to improving the health,
                         safety, and well-being of pets and animals. From routine checkups
                         to advanced treatments, he combines expertise with compassion
                         to ensure your furry friends receive the best care possible.
