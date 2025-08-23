@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import { allImages } from "../assets/images"
 
-export default function CTA() {
+export default function QuickIntro() {
     return (
         <main className="dark:bg-black bg-white relative overflow-hidden min-h-screen flex items-center">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-center gap-12 sm:gap-16 lg:gap-24 xl:gap-32 max-w-7xl relative">

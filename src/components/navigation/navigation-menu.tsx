@@ -28,7 +28,7 @@ export default function NavigationMenu() {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
     return (
-        <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b">
+        <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-2xl border-b">
             <div className="container mx-auto flex items-center justify-between py-3 px-4">
 
                 {/* Logo */}

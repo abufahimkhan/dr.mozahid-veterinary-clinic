@@ -89,7 +89,7 @@ export default function ServiceList() {
   return (
     <section
       id="services"
-      className="relative py-14 sm:py-16 md:py-20 dark:bg-gray-950 bg-white overflow-x-hidden"
+      className="relative py-14 sm:py-16 md:py-20 dark:bg-gray-950 bg-white overflow-hidden"
     >
       {/* Background accents */}
       <motion.div
@@ -135,7 +135,7 @@ export default function ServiceList() {
               <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 bg-gradient-to-r from-pink-500/10 via-indigo-500/10 to-cyan-500/10 group-hover:opacity-100 transition" />
 
               {/* Content */}
-              <div className="relative z-10 flex items-start gap-4">
+              <div className="relative z-10 flex flex-col items-center justify-center text-center gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-pink-500/15 via-indigo-500/15 to-cyan-500/15 ring-1 ring-gray-200/70 dark:ring-white/10 transition group-hover:scale-105">
                   <Icon className={`h-6 w-6 ${color}`} />
                 </div>
